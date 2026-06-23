@@ -28,6 +28,7 @@ a{
 /* TOP */
 
 .hero{
+  position:relative;
   height:100vh;
   display:flex;
   flex-direction:column;
@@ -43,8 +44,8 @@ a{
   max-width:1000px;
 
   animation:
-  noise 2.5s infinite,
-  fadein 2s ease;
+  noise 0.3s infinite,
+  fadein 1.5s ease;
 }
 
 
@@ -170,8 +171,50 @@ line-height:2;
 }
 
 
-</style>
+.hero::before{
 
+content:"";
+position:absolute;
+inset:0;
+
+background:
+repeating-linear-gradient(
+0deg,
+rgba(255,255,255,0.05) 0px,
+rgba(255,255,255,0.05) 1px,
+transparent 2px,
+transparent 4px
+);
+
+opacity:0;
+
+animation: tvnoise 1.2s ease;
+
+pointer-events:none;
+
+}
+
+
+@keyframes tvnoise{
+
+0%{
+opacity:1;
+background-position:0 0;
+}
+
+30%{
+opacity:0.8;
+background-position:0 40px;
+}
+
+100%{
+opacity:0;
+}
+
+}
+
+</style>
+  
 </head>
 
 
