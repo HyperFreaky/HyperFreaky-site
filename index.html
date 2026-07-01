@@ -239,6 +239,20 @@ opacity:0;
 }
 
 }
+  
+.content{
+max-height:0;
+overflow:hidden;
+transition:.5s ease;
+}
+
+.accordion.active .content{
+max-height:1000px;
+}
+
+h2{
+cursor:pointer;
+}
 
 </style>
   
@@ -280,10 +294,13 @@ OFFICIAL WEBSITE
 <!-- NEWS -->
 
 
-<section>
+<section class="accordion">
 
-<h2>NEWS</h2>
+<h2 onclick="toggle(this)">
+NEWS
+</h2>
 
+<div class="content">
 
 <div class="card">
 
@@ -314,7 +331,8 @@ LISTEN NOW
 
 </div>
 
-
+</div>
+  
 </section>
 
 
@@ -326,11 +344,14 @@ LISTEN NOW
 <!-- ABOUT -->
 
 
-<section>
+<section class="accordion">
 
 
-<h2>ABOUT</h2>
+<h2 onclick="toggle(this)">
+ABOUT
+</h2>
 
+<div class="content">
 
 <div class="card small">
 
@@ -366,6 +387,7 @@ Drums<br>
 
 </div>
 
+</div>
 
 </div>
 
@@ -380,11 +402,13 @@ Drums<br>
 <!-- LIVE -->
 
 
-<section>
+<section class="accordion">
 
+<h2 onclick="toggle(this)">
+LIVE
+</h2>
 
-<h2>LIVE</h2>
-
+<div class="content">
 
 <div class="card">
 
@@ -395,7 +419,6 @@ Drums<br>
 出演情報はこちら
 
 </div>
-
 
 
 <div class="card live">
@@ -418,7 +441,8 @@ LIVE ARCHIVEを見る
 
 </div>
 
-
+</div>
+  
 </section>
 
 
@@ -543,7 +567,18 @@ ARE YOU FREAKY???
 
 </footer>
 
+<script>
+  
+function toggle(element){
 
+const box =
+element.parentElement;
+
+box.classList.toggle("active");
+
+}
+
+</script>
 
 </body>
 </html>
